@@ -2,18 +2,12 @@ from tkinter import *
 from scrapper import scrapperFuncN
 from package_maker import packageMaker
 
-def btn_clicked(entry1, entry2, entry3):
-    entry1_contents = entry1.get()
-    entry2_contents = int(entry2.get())
-    entry3_contents = int(entry3.get())
-    print(entry1_contents)
-    print(entry2_contents)
-    print(entry3_contents)
-    # scrapperOutput=scrapperFuncN(entry1_contents)
-    # for ele in scrapperOutput:
-    #     print(ele)
-    packageMaker(entry1_contents,entry2_contents,entry3_contents)
-
+def btn_clicked(whereto,budget,days,travelers):
+    days_contents = int(days.get())
+    budget_contents = int(budget.get())
+    whereto_contents = whereto.get()
+    travelers_contents = int(travelers.get())
+    packageMaker(whereto_contents,budget_contents,days_contents,travelers_contents)
 window = Tk()
 
 window.geometry("893x560")
@@ -28,67 +22,82 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"background.png")
+background_img = PhotoImage(file = f"assets/First_page/background.png")
 background = canvas.create_image(
     446.5, 280.0,
     image=background_img)
 
-img0 = PhotoImage(file = f"img0.png")
+img0 = PhotoImage(file = f"assets/First_page/img0.png")
 b0 = Button(
     image = img0,
     borderwidth = 0,
     highlightthickness = 0,
-    command=lambda: btn_clicked(destinationInput, budgetInput,stayDurationInput ),
+    command=lambda: btn_clicked(whereto,budget,days,travelers),
     relief = "flat")
 
 b0.place(
-    x = 576, y = 453,
+    x = 579, y = 464,
     width = 219,
     height = 46)
 
-stayDurationInput_img = PhotoImage(file = f"img_textBox0.png")
-stayDurationInput_bg = canvas.create_image(
-    686.5, 377.5,
-    image = stayDurationInput_img)
+days_img = PhotoImage(file = f"assets/First_page/img_textBox0.png")
+days_bg = canvas.create_image(
+    688.5, 311.5,
+    image = days_img)
 
-stayDurationInput = Entry(
+days = Entry(
     bd = 0,
     bg = "#ebdfff",
     highlightthickness = 0)
 
-stayDurationInput.place(
-    x = 592.5, y = 362,
+days.place(
+    x = 594.5, y = 296,
     width = 188.0,
     height = 29)
 
-budgetInput_img = PhotoImage(file = f"img_textBox1.png")
-budgetInput_bg = canvas.create_image(
-    686.5, 275.5,
-    image = budgetInput_img)
+budget_img = PhotoImage(file = f"assets/First_page/img_textBox1.png")
+budget_bg = canvas.create_image(
+    689.5, 224.5,
+    image = budget_img)
 
-budgetInput = Entry(
+budget = Entry(
     bd = 0,
     bg = "#ebdfff",
     highlightthickness = 0)
 
-budgetInput.place(
-    x = 592.5, y = 260,
+budget.place(
+    x = 595.5, y = 209,
     width = 188.0,
     height = 29)
 
-destinationInput_img = PhotoImage(file = f"img_textBox2.png")
-destinationInput_bg = canvas.create_image(
-    686.0, 173.5,
-    image = destinationInput_img)
+whereto_img = PhotoImage(file = f"assets/First_page/img_textBox2.png")
+whereto_bg = canvas.create_image(
+    688.5, 137.5,
+    image = whereto_img)
 
-destinationInput = Entry(
+whereto = Entry(
     bd = 0,
     bg = "#ebdfff",
     highlightthickness = 0)
 
-destinationInput.place(
-    x = 592.5, y = 158,
-    width = 187.0,
+whereto.place(
+    x = 594.5, y = 122,
+    width = 188.0,
+    height = 29)
+
+travelers_img = PhotoImage(file = f"assets/First_page/img_textBox3.png")
+travelers_bg = canvas.create_image(
+    687.5, 398.5,
+    image = travelers_img)
+
+travelers = Entry(
+    bd = 0,
+    bg = "#ebdfff",
+    highlightthickness = 0)
+
+travelers.place(
+    x = 593.5, y = 383,
+    width = 188.0,
     height = 29)
 
 window.resizable(False, False)

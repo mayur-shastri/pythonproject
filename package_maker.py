@@ -1,12 +1,21 @@
 from scrapper import scrapperFuncN
 import random
+from stay_output import stayOutput
 # Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
 def packageMaker(destination, budget, stayDuration, numPeople):
+    print(destination)
+    print(budget)
+    print(stayDuration)
+    print(numPeople)
     scrapperOutput = scrapperFuncN(destination)
     Hotels = scrapperOutput[1]
     Restaurants = scrapperOutput[2]
     Restaurant_expense = scrapperOutput[3]
     Hotel_prices = [price * 80 for price in scrapperOutput[4]]  # Convert hotel prices to rupees
+    for price in Hotel_prices:
+        if price == 0:
+            Hotel_prices.remove(price)
+    print(Hotel_prices)
     ratings = scrapperOutput[5]
     image_links = scrapperOutput[6]
 
@@ -67,7 +76,6 @@ def packageMaker(destination, budget, stayDuration, numPeople):
             ratings_index = restaurant_index + 20
             image_index = restaurant_index + 20
             restaurant_name = temp_restaurants[restaurant_index]
-            print(restaurant_name)
             restaurant_expense = Restaurant_expense[restaurant_index]
             eat_price = get_random_eat_price(restaurant_expense, hotel_price)
 
@@ -109,6 +117,7 @@ def packageMaker(destination, budget, stayDuration, numPeople):
 
     if len(packages) < num_packages:
         print(f"Only {len(packages)} packages available instead of {num_packages}. Consider adjusting the parameters.")
-
-# Example usage:
-packageMaker("pondicherry", 200000, 3, 2)
+    # placeName,hotelName,stars,reviews,hotel_image,hotel_price
+    # print(destination.title(),packages[0][0],packages[0][7],packages[0][1])
+    stayOutput(destination.title(),packages[0][0],packages[0][7],packages[0][1])
+# packageMaker('pondicherry', 60000, 3, 4)
