@@ -220,7 +220,7 @@
 
 from scrapper import scrapperFuncN
 import random
-
+# Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
 def packageMaker(destination, budget, stayDuration, numPeople):
     scrapperOutput = scrapperFuncN(destination)
     Hotels = scrapperOutput[1]
@@ -229,7 +229,7 @@ def packageMaker(destination, budget, stayDuration, numPeople):
     Hotel_prices = [price * 80 for price in scrapperOutput[4]]  # Convert hotel prices to rupees
     ratings = scrapperOutput[5]
     image_links = scrapperOutput[6]
-    
+
     num_packages = 5
     packages = []
 
@@ -240,7 +240,7 @@ def packageMaker(destination, budget, stayDuration, numPeople):
         if hotel_price > 1000:
             # User chose an expensive hotel, prefer Mid-range or Fine Dining
             if cost == 'Mid-range':
-                return random.randint(1000, 1500) * numPeople
+                return random.randint(600, 1100) * numPeople
             elif cost == 'Fine Dining':
                 return random.randint(1500, 2500) * numPeople
         else:
@@ -261,7 +261,7 @@ def packageMaker(destination, budget, stayDuration, numPeople):
     while len(packages) < num_packages and attempts < max_attempts:
         remaining_budget = adjusted_budget
         hotel_index = random.randint(0, len(Hotels) - 1)
-        
+        restaurant_images=[]
         if hotel_index in selected_hotels:
             attempts += 1
             continue  # Skip if the hotel has already been selected
@@ -272,7 +272,7 @@ def packageMaker(destination, budget, stayDuration, numPeople):
         hotel_name = Hotels[hotel_index]
         hotel_price = Hotel_prices[hotel_index] * stayDuration * numPeople
         hotel_rating = ratings[hotel_index + 10]
-
+        hotel_image = image_links[hotel_index + 10]
         if hotel_price*stayDuration*numPeople > remaining_budget:
             continue  # Skip the hotel if its price exceeds the remaining budget
 
@@ -280,10 +280,14 @@ def packageMaker(destination, budget, stayDuration, numPeople):
         restaurant_cost = []
         restaurant_ratings = []
         temp_restaurants = Restaurants.copy()  # Create a copy of Restaurants
-
+        temp_ratings = ratings.copy()
+        temp_image_links = image_links.copy()
         while remaining_budget > 0 and temp_restaurants:  # Use the copied list for iteration
             restaurant_index = random.randint(0, len(temp_restaurants) - 1)
+            ratings_index = restaurant_index + 20
+            image_index = restaurant_index + 20
             restaurant_name = temp_restaurants[restaurant_index]
+            print(restaurant_name)
             restaurant_expense = Restaurant_expense[restaurant_index]
             eat_price = get_random_eat_price(restaurant_expense, hotel_price)
 
@@ -291,20 +295,23 @@ def packageMaker(destination, budget, stayDuration, numPeople):
                 remaining_budget -= eat_price
                 restaurant_list.append(restaurant_name)
                 restaurant_cost.append(eat_price)
-                restaurant_ratings.append(ratings[restaurant_index + 20])
+                restaurant_ratings.append(temp_ratings[ratings_index])
+                restaurant_images.append(temp_image_links[image_index])
+                #print(temp_image_links[image_index])
             else:
                 break  # Break the loop if remaining budget is insufficient
 
             temp_restaurants.remove(restaurant_name)  # Remove from the copied list
-
+            temp_ratings.remove(temp_ratings[ratings_index])
+            temp_image_links.remove(temp_image_links[image_index])
         if restaurant_list:
             package_score = calculate_score(hotel_price, restaurant_cost)
-            packages.append((hotel_name, hotel_price, hotel_rating, restaurant_list, restaurant_cost, restaurant_ratings, package_score))
+            packages.append((hotel_name, hotel_price, hotel_rating, restaurant_list, restaurant_cost, restaurant_ratings, package_score,hotel_image,restaurant_images))
 
     # Sort the packages based on the score in descending order
     packages.sort(key=lambda x: x[6], reverse=True)
 
-    # Print the available packages
+    #Print the available packages
     count = 0
     for package in packages:
         count += 1
@@ -312,10 +319,12 @@ def packageMaker(destination, budget, stayDuration, numPeople):
         print("Hotel:", package[0])
         print("Hotel Price (Rupees):", package[1])
         print("Hotel Rating:", package[2])
+        print("Hotel image: ",package[7])
         print("Restaurants:")
         for j in range(len(package[3])):
             print(f"- {package[3][j]} (Cost: {package[4][j]})")
             print("  Rating:", package[5][j])
+            print("Restaurant Image: ",package[8][j])
         print()
 
     if len(packages) < num_packages:
