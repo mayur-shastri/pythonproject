@@ -2,11 +2,13 @@ from scrapper import scrapperFuncN
 import random
 from stay_output import stayOutput
 from tkinter import *
+from visit_output import visitOutput
 
 # Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
 def packageMaker(root,destination, budget, stayDuration, numPeople):
 
     scrapperOutput = scrapperFuncN(destination)
+    Visit = scrapperOutput[0]
     Hotels = scrapperOutput[1]
     Restaurants = scrapperOutput[2]
     Restaurant_expense = scrapperOutput[3]
@@ -111,7 +113,6 @@ def packageMaker(root,destination, budget, stayDuration, numPeople):
     
     root.withdraw()  # Hide the root window
 
-    stayOutput(root, destination, packages[0][0], packages[0][7], packages[0][1])
-
+    # stayOutput(root, destination.title(), packages[0][0], packages[0][7], packages[0][1],packages[0][2])
     root.mainloop()
 # packageMaker('pondicherry', 600000, 3, 2)

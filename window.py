@@ -32,12 +32,12 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"C:/Users/s1agn/Documents/Coding/pythonproject/assets/First_Page/background.png")
+background_img = PhotoImage(file = f"assets/First_page/background.png")
 background = canvas.create_image(
     446.5, 280.0,
     image=background_img)
 
-img0 = PhotoImage(file = f"C:/Users/s1agn/Documents/Coding/pythonproject/assets/First_page/img0.png")
+img0 = PhotoImage(file = f"assets/First_page/img0.png")
 b0 = Button(
     image = img0,
     borderwidth = 0,
@@ -50,7 +50,7 @@ b0.place(
     width = 219,
     height = 46)
 
-days_img = PhotoImage(file = f"C:/Users/s1agn/Documents/Coding/pythonproject/assets/First_page/img_textBox0.png")
+days_img = PhotoImage(file = f"assets/First_page/img_textBox0.png")
 days_bg = canvas.create_image(
     688.5, 311.5,
     image = days_img)
@@ -65,7 +65,7 @@ days.place(
     width = 188.0,
     height = 29)
 
-budget_img = PhotoImage(file = f"C:/Users/s1agn/Documents/Coding/pythonproject/assets/First_page/img_textBox1.png")
+budget_img = PhotoImage(file = f"assets/First_page/img_textBox1.png")
 budget_bg = canvas.create_image(
     689.5, 224.5,
     image = budget_img)
@@ -80,7 +80,7 @@ budget.place(
     width = 188.0,
     height = 29)
 
-whereto_img = PhotoImage(file = f"C:/Users/s1agn/Documents/Coding/pythonproject/assets/First_page/img_textBox2.png")
+whereto_img = PhotoImage(file = f"assets/First_page/img_textBox2.png")
 whereto_bg = canvas.create_image(
     688.5, 137.5,
     image = whereto_img)
@@ -95,7 +95,7 @@ whereto.place(
     width = 188.0,
     height = 29)
 
-travelers_img = PhotoImage(file = f"C:/Users/s1agn/Documents/Coding/pythonproject/assets/First_page/img_textBox3.png")
+travelers_img = PhotoImage(file = f"assets/First_page/img_textBox3.png")
 travelers_bg = canvas.create_image(
     687.5, 398.5,
     image = travelers_img)
