@@ -3,7 +3,8 @@ from PIL import ImageTk, Image
 import requests
 from io import BytesIO
 
-
+def clicked():
+    pass
 def btn_clicked(
     f,
     root,
@@ -294,7 +295,7 @@ def visitOutput(
         image=img3,
         borderwidth=0,
         highlightthickness=0,
-        command=btn_clicked,
+        command=clicked,
         relief="flat",
     )
 
@@ -306,7 +307,7 @@ def visitOutput(
         image=img4,
         borderwidth=0,
         highlightthickness=0,
-        command=btn_clicked,
+        command=clicked,
         relief="flat",
     )
 
@@ -398,7 +399,7 @@ def eatOutput(
         borderwidth=0,
         highlightthickness=0,
         command=lambda: btn_clicked(
-            1,
+            2,
             window,
             placeName,
             hotelName,
@@ -419,7 +420,7 @@ def eatOutput(
         borderwidth=0,
         highlightthickness=0,
         command=lambda: btn_clicked(
-            2,
+            3,
             window,
             placeName,
             hotelName,
@@ -440,7 +441,7 @@ def eatOutput(
         borderwidth=0,
         highlightthickness=0,
         command=lambda: btn_clicked(
-            3,
+            1,
             window,
             placeName,
             hotelName,
@@ -460,7 +461,7 @@ def eatOutput(
         image=img3,
         borderwidth=0,
         highlightthickness=0,
-        command=btn_clicked,
+        command=clicked,
         relief="flat",
     )
 
