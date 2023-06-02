@@ -113,6 +113,6 @@ def packageMaker(root,destination, budget, stayDuration, numPeople):
     
     root.withdraw()  # Hide the root window
 
-    # stayOutput(root, destination.title(), packages[0][0], packages[0][7], packages[0][1],packages[0][2])
+    stayOutput(root, destination.title(), packages[0][0], packages[0][7], packages[0][1],packages[0][2])
     root.mainloop()
 # packageMaker('pondicherry', 600000, 3, 2)
