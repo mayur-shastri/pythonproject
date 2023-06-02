@@ -1,14 +1,10 @@
 from scrapper import scrapperFuncN
 import random
 from stay_output import stayOutput
-
+from tkinter import *
 
 # Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
-def packageMaker(destination, budget, stayDuration, numPeople):
-    print(destination)
-    print(budget)
-    print(stayDuration)
-    print(numPeople)
+def packageMaker(root,destination, budget, stayDuration, numPeople):
 
     scrapperOutput = scrapperFuncN(destination)
     Hotels = scrapperOutput[1]
@@ -18,7 +14,6 @@ def packageMaker(destination, budget, stayDuration, numPeople):
     for price in Hotel_prices:
         if price == 0:
             Hotel_prices.remove(price)
-    print(Hotel_prices)
     ratings = scrapperOutput[5]
     image_links = scrapperOutput[6]
 
@@ -102,25 +97,21 @@ def packageMaker(destination, budget, stayDuration, numPeople):
     # Sort the packages based on the score in descending order
     packages.sort(key=lambda x: x[6], reverse=True)
 
-    #Print the available packages
-    count = 0
-    for package in packages:
-        count += 1
-        print(f"Package {count}:")
-        print("Hotel:", package[0])
-        print("Hotel Price (Rupees):", package[1])
-        print("Hotel Rating:", package[2])
-        print("Hotel image: ",package[7])
-        print("Restaurants:")
-        for j in range(len(package[3])):
-            print(f"- {package[3][j]} (Cost: {package[4][j]})")
-            print("  Rating:", package[5][j])
-            print("Restaurant Image: ",package[8][j])
-        print()
-
     if len(packages) < num_packages:
         print(f"Only {len(packages)} packages available instead of {num_packages}. Consider adjusting the parameters.")
     # placeName,hotelName,stars,reviews,hotel_image,hotel_price
     # print(destination.title(),packages[0][0],packages[0][7],packages[0][1])
-    stayOutput(destination,packages[0][0],packages[0][7],packages[0][1])
-# packageMaker('pondicherry', 60000, 3, 4)
+    print('-------------------------------------')
+    print("Hotel name = ",packages[0][0])
+    print('-------------------------------------')
+    print("Image Link = ",packages[0][7])
+    print('-------------------------------------')
+    print("Hotel Price = ",packages[0][1])
+    print('-------------------------------------')
+    
+    root.withdraw()  # Hide the root window
+
+    stayOutput(root, destination, packages[0][0], packages[0][7], packages[0][1])
+
+    root.mainloop()
+# packageMaker('pondicherry', 600000, 3, 2)

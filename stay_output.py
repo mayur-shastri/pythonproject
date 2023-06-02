@@ -6,8 +6,9 @@ from io import BytesIO
 def btn_clicked():
     print("Button Clicked")
 # placeName,hotelName,stars,reviews,hotel_image,hotel_price
-def stayOutput(placeName,hotelName,hotel_image,hotel_price):
-    window = Tk()
+def stayOutput(root, placeName, hotelName, hotel_image, hotel_price):
+    window = Toplevel(root)  # Create a Toplevel window
+
 
     window.geometry("880x575")
     window.configure(bg="#ffffff")
@@ -22,10 +23,10 @@ def stayOutput(placeName,hotelName,hotel_image,hotel_price):
     )
     canvas.place(x=0, y=0)
 
-    background_img = PhotoImage(file="assets/Stay_Output_Page/background.png")
+    background_img = PhotoImage(file="C:/Users/s1agn/Documents/Coding/pythonproject/assets/Stay_Output_Page/background.png")
     background = canvas.create_image(440.0, 287.5, image=background_img)
 
-    img0 = PhotoImage(file="assets/Stay_Output_Page/img0.png")
+    img0 = PhotoImage(file="C:/Users/s1agn/Documents/Coding/pythonproject/assets/Stay_Output_Page/img0.png")
     b0 = Button(
         image=img0,
         borderwidth=0,
@@ -35,7 +36,7 @@ def stayOutput(placeName,hotelName,hotel_image,hotel_price):
     )
     b0.place(x=67, y=11, width=158, height=47)
 
-    img1 = PhotoImage(file="assets/Stay_Output_Page/img1.png")
+    img1 = PhotoImage(file="C:/Users/s1agn/Documents/Coding/pythonproject/assets/Stay_Output_Page/img1.png")
     b1 = Button(
         image=img1,
         borderwidth=0,
@@ -45,7 +46,7 @@ def stayOutput(placeName,hotelName,hotel_image,hotel_price):
     )
     b1.place(x=361, y=11, width=158, height=47)
 
-    img2 = PhotoImage(file="assets/Stay_Output_Page/img2.png")
+    img2 = PhotoImage(file="C:/Users/s1agn/Documents/Coding/pythonproject/assets/Stay_Output_Page/img2.png")
     b2 = Button(
         image=img2,
         borderwidth=0,
@@ -108,4 +109,4 @@ def stayOutput(placeName,hotelName,hotel_image,hotel_price):
     text_label5.configure(bg="blue")  # Set background color to blue
     window.resizable(False, False)
     window.mainloop()
-#stayOutput('pondicherry','hotelName','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmX8VjCUeVbyF-0pBN0BSmLJ5_mJ4Z4pcDsckmNoeH&s',85)
+# stayOutput('pondicherry','hotelName','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmX8VjCUeVbyF-0pBN0BSmLJ5_mJ4Z4pcDsckmNoeH&s',85)
