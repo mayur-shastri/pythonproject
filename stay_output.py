@@ -108,4 +108,4 @@ def stayOutput(placeName,hotelName,hotel_image,hotel_price):
     text_label5.configure(bg="blue")  # Set background color to blue
     window.resizable(False, False)
     window.mainloop()
-# stayOutput('pondicherry','hotelName','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmX8VjCUeVbyF-0pBN0BSmLJ5_mJ4Z4pcDsckmNoeH&s',85)
+#stayOutput('pondicherry','hotelName','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmX8VjCUeVbyF-0pBN0BSmLJ5_mJ4Z4pcDsckmNoeH&s',85)

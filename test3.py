@@ -21,12 +21,12 @@ def page1(window):
         relief="ridge"
     )
     canvas.place(x=0, y=0)
-    background_img = PhotoImage(file=f"background.png")
+    background_img = PhotoImage(file=f"assets/First_page/background.png")
     background = canvas.create_image(
         446.5, 280.0,
         image=background_img)
 
-    img0 = PhotoImage(file=f"img0.png")
+    img0 = PhotoImage(file=f"assets/First_page/img0.png")
     b0 = Button(
         image=img0,
         borderwidth=0,
@@ -39,7 +39,7 @@ def page1(window):
         width=219,
         height=46)
 
-    days_img = PhotoImage(file=f"img_textBox0.png")
+    days_img = PhotoImage(file=f"assets/First_page/img_textBox0.png")
     days_bg = canvas.create_image(
         688.5, 311.5,
         image=days_img)
@@ -54,7 +54,7 @@ def page1(window):
         width=188.0,
         height=29)
 
-    budget_img = PhotoImage(file=f"img_textBox1.png")
+    budget_img = PhotoImage(file=f"assets/First_page/img_textBox1.png")
     budget_bg = canvas.create_image(
         689.5, 224.5,
         image=budget_img)
@@ -69,7 +69,7 @@ def page1(window):
         width=188.0,
         height=29)
 
-    whereto_img = PhotoImage(file=f"img_textBox2.png")
+    whereto_img = PhotoImage(file=f"assets/First_page/img_textBox2.png")
     whereto_bg = canvas.create_image(
         688.5, 137.5,
         image=whereto_img)
@@ -84,7 +84,7 @@ def page1(window):
         width=188.0,
         height=29)
 
-    travelers_img = PhotoImage(file=f"img_textBox3.png")
+    travelers_img = PhotoImage(file=f"assets/First_page/img_textBox3.png")
     travelers_bg = canvas.create_image(
         687.5, 398.5,
         image=travelers_img)
@@ -113,10 +113,10 @@ def page2(window):
     )
     canvas.place(x=0, y=0)
 
-    background_img = PhotoImage(file="background.png")
+    background_img = PhotoImage(file="assets/Stay_Output_Page/background.png")
     background = canvas.create_image(440.0, 287.5, image=background_img)
 
-    img0 = PhotoImage(file="img0.png")
+    img0 = PhotoImage(file="assets/Stay_Output_Page/img0.png")
     b0 = Button(
         image=img0,
         borderwidth=0,
@@ -126,7 +126,7 @@ def page2(window):
     )
     b0.place(x=67, y=11, width=158, height=47)
 
-    img1 = PhotoImage(file="img1.png")
+    img1 = PhotoImage(file="assets/Stay_Output_Page/img1.png")
     b1 = Button(
         image=img1,
         borderwidth=0,
@@ -136,7 +136,7 @@ def page2(window):
     )
     b1.place(x=361, y=11, width=158, height=47)
 
-    img2 = PhotoImage(file="img2.png")
+    img2 = PhotoImage(file="assets/Stay_Output_Page/img2.png")
     b2 = Button(
         image=img2,
         borderwidth=0,

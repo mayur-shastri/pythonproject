@@ -1,12 +1,15 @@
 from scrapper import scrapperFuncN
 import random
 from stay_output import stayOutput
+
+
 # Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
 def packageMaker(destination, budget, stayDuration, numPeople):
     print(destination)
     print(budget)
     print(stayDuration)
     print(numPeople)
+
     scrapperOutput = scrapperFuncN(destination)
     Hotels = scrapperOutput[1]
     Restaurants = scrapperOutput[2]
@@ -119,5 +122,5 @@ def packageMaker(destination, budget, stayDuration, numPeople):
         print(f"Only {len(packages)} packages available instead of {num_packages}. Consider adjusting the parameters.")
     # placeName,hotelName,stars,reviews,hotel_image,hotel_price
     # print(destination.title(),packages[0][0],packages[0][7],packages[0][1])
-    stayOutput(destination.title(),packages[0][0],packages[0][7],packages[0][1])
+    stayOutput(destination,packages[0][0],packages[0][7],packages[0][1])
 # packageMaker('pondicherry', 60000, 3, 4)
