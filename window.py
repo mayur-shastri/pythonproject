@@ -21,7 +21,6 @@ def explore_clicked(whereto, budget, days, travelers):
         window, whereto_contents, budget_contents, days_contents, travelers_contents
     )
 
-
 window = Tk()
 
 window.geometry("893x560")
@@ -55,7 +54,7 @@ days_img = PhotoImage(file=f"assets/First_page/img_textBox0.png")
 days_bg = canvas.create_image(688.5, 311.5, image=days_img)
 
 days = Entry(bd=0, bg="#ebdfff", highlightthickness=0)
- 
+
 days.place(x=594.5, y=296, width=188.0, height=29)
 
 budget_img = PhotoImage(file=f"assets/First_page/img_textBox1.png")

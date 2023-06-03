@@ -3,7 +3,6 @@ import random
 from output import btn_clicked
 from tkinter import *
 
-#function to modify the visiting places, such that they have only first 2 words
 def modify_Visiting_places(string_list):
     modified_list = []
     for string in string_list:
@@ -15,10 +14,9 @@ def modify_Visiting_places(string_list):
             modified_list.append(string)
     return modified_list
 
-
-
 # Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
 def packageMaker(root, destination, budget, stayDuration, numPeople):
+    
     scrapperOutput = scrapperFuncN(destination)
     scrapperVisit = scrapperOutput[0]
     Visit=modify_Visiting_places(scrapperVisit)
@@ -152,5 +150,6 @@ def packageMaker(root, destination, budget, stayDuration, numPeople):
         visiting_places=Visit,
         visiting_images=visit_images,
         visiting_stars_reviews=visit_stars_reviews,
+        restaurant_cost=packages[0][4]
     )
     root.mainloop()
