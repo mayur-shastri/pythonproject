@@ -1,10 +1,66 @@
 from tkinter import *
+import tkinter as tk
 from scrapper import scrapperFuncN
 from package_maker import packageMaker
 import threading
 
+def clicked(currentWindow):
+    currentWindow.withdraw()
+def errorPage(root):
+
+    window = Toplevel(root)
+
+    window.geometry("880x575")
+    window.configure(bg = "#00203d")
+    canvas = Canvas(
+        window,
+        bg = "#00203d",
+        height = 575,
+        width = 880,
+        bd = 0,
+        highlightthickness = 0,
+        relief = "ridge")
+    canvas.place(x = 0, y = 0)
+
+    background_img = PhotoImage(file = f"assets/Error Page/background.png")
+    background = canvas.create_image(
+        437.0, 253.5,
+        image=background_img)
+
+    img0 = PhotoImage(file = f"assets/Error Page/img0.png")
+    b0 = Button(
+        window,
+        image = img0,
+        borderwidth = 0,
+        highlightthickness = 0,
+        command = lambda: clicked(window),
+        relief = "flat")
+
+    b0.place(
+        x = 316, y = 477,
+        width = 220,
+        height = 50)
+
+    img1 = PhotoImage(file = f"assets/Error Page/img1.png")
+    b1 = Button(
+        window,
+        image = img1,
+        borderwidth = 0,
+        highlightthickness = 0,
+        command = lambda: clicked(window),
+        relief = "flat")
+
+    b1.place(
+        x = 59, y = 477,
+        width = 220,
+        height = 50)
+
+    window.resizable(False, False)
+    window.mainloop()
 
 def explore_clicked(whereto, budget, days, travelers):
+    if(budget.get()=='' or whereto.get()=='' or days.get()=='' or travelers.get()==''):
+        errorPage(window)
     days_contents = int(days.get())
     budget_contents = int(budget.get())
     whereto_contents = whereto.get()
@@ -17,6 +73,8 @@ def explore_clicked(whereto, budget, days, travelers):
     print("Day: ", days_contents)
     print("---------------------")
     print("Travelers = ", travelers_contents)
+    
+    
     packageMaker(
         window, whereto_contents, budget_contents, days_contents, travelers_contents
     )
@@ -80,3 +138,5 @@ travelers.place(x=593.5, y=383, width=188.0, height=29)
 
 window.resizable(False, False)
 window.mainloop()
+
+

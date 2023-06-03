@@ -145,7 +145,6 @@ def packageMaker(root, destination, budget, stayDuration, numPeople):
         hotel_rating_reviews=packages[0][2],
         resturant_names=packages[0][3],
         resturant_images=packages[0][8],
-        # esturant_cost=packages[0][4],
         resturant_stars=packages[0][5],
         visiting_places=Visit,
         visiting_images=visit_images,
