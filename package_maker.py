@@ -6,6 +6,7 @@ from tkinter import *
 
 # Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
 def packageMaker(root, destination, budget, stayDuration, numPeople):
+    
     scrapperOutput = scrapperFuncN(destination)
     Visit = scrapperOutput[0]
     Hotels = scrapperOutput[1]
@@ -138,5 +139,6 @@ def packageMaker(root, destination, budget, stayDuration, numPeople):
         visiting_places=Visit,
         visiting_images=visit_images,
         visiting_stars_reviews=visit_stars_reviews,
+        restaurant_cost=packages[0][4]
     )
     root.mainloop()

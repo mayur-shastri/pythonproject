@@ -3,6 +3,10 @@ from PIL import ImageTk, Image
 import requests
 from io import BytesIO
 
+def cost_range(cost):
+    x = round(cost,-2)
+    y = 1.5*x
+    return f'₹{x}-{int(y)}/person'
 
 def clicked():
     pass
@@ -21,7 +25,7 @@ def btn_clicked(
     resturant_images,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,
+    visiting_stars_reviews,restaurant_cost
 ):
     if f == 1:
         stayOutput(
@@ -36,7 +40,7 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         )
     if f == 2:
         eatOutput(
@@ -51,7 +55,7 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         )
     if f == 3:
         visitOutput(
@@ -66,7 +70,7 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         )
 
 
@@ -82,7 +86,7 @@ def stayOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,
+    visiting_stars_reviews,restaurant_cost
 ):
     window = Toplevel(root)  # Create a Toplevel window
     root.withdraw()
@@ -124,7 +128,7 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -149,7 +153,7 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -174,7 +178,7 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -253,7 +257,7 @@ def visitOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,
+    visiting_stars_reviews,restaurant_cost
 ):
     window = Toplevel(root)
     root.withdraw()
@@ -293,7 +297,7 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -319,7 +323,7 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -345,7 +349,7 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -578,7 +582,7 @@ def eatOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,
+    visiting_stars_reviews,restaurant_cost
 ):
     window = Toplevel(root)
     root.withdraw()
@@ -618,7 +622,7 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -644,7 +648,7 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -670,7 +674,7 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,
+            visiting_stars_reviews,restaurant_cost
         ),
         relief="flat",
     )
@@ -811,6 +815,33 @@ def eatOutput(
     review3.configure(foreground="white")  # Set text color to white
     review3.configure(bg="#002074")
     print(resturant_stars[2][16:])
+
+    cost1 = Label(
+        window,
+        text=f"{cost_range(restaurant_cost[0])}",
+        font=("Arial Narrow", 10, "bold"),
+    )
+    cost1.place(x=61, y=370, width=120, height=20)
+    cost1.configure(foreground="white")  # Set text color to white
+    cost1.configure(bg="#002074")  # Set background color to blue
+
+    cost2 = Label(
+        window,
+        text=f"{cost_range(restaurant_cost[1])}",
+        font=("Arial Narrow", 10, "bold"),
+    )
+    cost2.place(x=341.6, y=370, width=120, height=20)
+    cost2.configure(foreground="white")  # Set text color to white
+    cost2.configure(bg="#002074")  # Set background color to blue
+
+    cost3 = Label(
+        window,
+        text=f"{cost_range (restaurant_cost[2])}",
+        font=("Arial Narrow", 10, "bold"),
+    )
+    cost3.place(x=621.83, y=370, width=120, height=20)
+    cost3.configure(foreground="white")  # Set text color to white
+    cost3.configure(bg="#002074")  # Set background color to blue
 
     window.resizable(False, False)
     window.mainloop()
