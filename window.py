@@ -2,7 +2,7 @@ from tkinter import *
 import tkinter as tk
 from scrapper import scrapperFuncN
 from package_maker import packageMaker
-import threading
+import re
 
 def clicked(currentWindow):
     currentWindow.withdraw()
@@ -59,8 +59,30 @@ def errorPage(root):
     window.mainloop()
 
 def explore_clicked(whereto, budget, days, travelers):
-    if(budget.get()=='' or whereto.get()=='' or days.get()=='' or travelers.get()==''):
+    temp_budget=budget.get()
+    print("temp budget: ",temp_budget)
+    temp_whereto=whereto.get()
+    print("where budget: ",temp_whereto)
+
+    temp_days=days.get()
+    print("temp days: ",temp_days)
+
+    temp_travelers=travelers.get()
+    print("travellers days: ",temp_travelers)
+
+
+    if(budget.get()=='' or whereto.get()=='' or days.get()=='' or travelers.get()==''
+       ):
         errorPage(window)
+
+    
+    if(re.match('^[0-9]*$', temp_budget) and re.match('[A-Za-z]*$', temp_whereto) and re.match('[0-9]*$', temp_days) and re.match('[0-9]*$', temp_travelers) ):
+        pass
+    else:
+        errorPage(window)
+        
+        
+
     days_contents = int(days.get())
     budget_contents = int(budget.get())
     whereto_contents = whereto.get()
