@@ -3,13 +3,21 @@ from PIL import ImageTk, Image
 import requests
 from io import BytesIO
 
+
 def cost_range(cost):
-    x = round(cost,-2)
-    y = 1.5*x
-    return f'₹{x}-{int(y)}/person'
+    x = round(cost, -2)
+    y = 1.5 * x
+    return f"₹{x}-{int(y)}/person"
+
 
 def clicked():
     pass
+
+
+def next_button_clicked(root):
+    from package_maker import nextPackage
+
+    nextPackage(root)
 
 
 def btn_clicked(
@@ -25,7 +33,8 @@ def btn_clicked(
     resturant_images,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
+    restaurant_cost,
 ):
     if f == 1:
         stayOutput(
@@ -40,7 +49,8 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         )
     if f == 2:
         eatOutput(
@@ -55,7 +65,8 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         )
     if f == 3:
         visitOutput(
@@ -70,7 +81,8 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         )
 
 
@@ -86,7 +98,8 @@ def stayOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
+    restaurant_cost,
 ):
     window = Toplevel(root)  # Create a Toplevel window
     root.withdraw()
@@ -128,7 +141,8 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -153,7 +167,8 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -178,7 +193,8 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -257,7 +273,8 @@ def visitOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
+    restaurant_cost,
 ):
     window = Toplevel(root)
     root.withdraw()
@@ -297,7 +314,8 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -323,7 +341,8 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -349,36 +368,37 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
 
     b2.place(x=653, y=13, width=140, height=41)
-
+    # ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
     img3 = PhotoImage(file=f"assets/Visit_images/img3.png")
     b3 = Button(
         window,
         image=img3,
         borderwidth=0,
         highlightthickness=0,
-        command=clicked,
+        command=lambda: next_button_clicked(window),
         relief="flat",
     )
 
     b3.place(x=668, y=72, width=193, height=38)
 
-    img4 = PhotoImage(file=f"assets/Visit_images/img4.png")
-    b4 = Button(
-        window,
-        image=img4,
-        borderwidth=0,
-        highlightthickness=0,
-        command=clicked,
-        relief="flat",
-    )
+    # img4 = PhotoImage(file=f"assets/Visit_images/img4.png")
+    # b4 = Button(
+    #     window,
+    #     image=img4,
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     command=clicked,
+    #     relief="flat",
+    # )
 
-    b4.place(x=699, y=522, width=141, height=55)
+    # b4.place(x=699, y=522, width=141, height=55)
 
     name1 = Label(
         window,
@@ -582,7 +602,8 @@ def eatOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
+    restaurant_cost,
 ):
     window = Toplevel(root)
     root.withdraw()
@@ -622,7 +643,8 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -648,7 +670,8 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -674,7 +697,8 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
+            restaurant_cost,
         ),
         relief="flat",
     )
@@ -845,4 +869,3 @@ def eatOutput(
 
     window.resizable(False, False)
     window.mainloop()
-

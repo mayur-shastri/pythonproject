@@ -3,23 +3,33 @@ import random
 from output import btn_clicked
 from tkinter import *
 
+index = 0
+
+
 def modify_Visiting_places(string_list):
     modified_list = []
     for string in string_list:
         words = string.split()
         if len(words) > 2:
-            modified_string = ' '.join(words[:2])
+            modified_string = " ".join(words[:2])
             modified_list.append(modified_string)
         else:
             modified_list.append(string)
     return modified_list
 
+
+_destination = ""
+_packages = []
+_Visit = []
+_visit_images = []
+_visit_stars_reviews = []
+
+
 # Do, Stay, Eat, new_eat_price, stay_price, ratings, image_links
 def packageMaker(root, destination, budget, stayDuration, numPeople):
-    
     scrapperOutput = scrapperFuncN(destination)
     scrapperVisit = scrapperOutput[0]
-    Visit=modify_Visiting_places(scrapperVisit)
+    Visit = modify_Visiting_places(scrapperVisit)
     Hotels = scrapperOutput[1]
     Restaurants = scrapperOutput[2]
     Restaurant_expense = scrapperOutput[3]
@@ -132,23 +142,61 @@ def packageMaker(root, destination, budget, stayDuration, numPeople):
         print(
             f"Only {len(packages)} packages available instead of {num_packages}. Consider adjusting the parameters."
         )
+    global _destination
+    _destination = destination.title()
+    global _packages
+    _packages = packages
+    global _Visit
+    _Visit = Visit
+    global _visit_images
+    _visit_images = visit_images
+    global _visit_stars_reviews
+    _visit_stars_reviews = visit_stars_reviews
 
     root.withdraw()  # Hide the root window
+
     print("Window should open now")
+
     btn_clicked(
         1,
         root=root,
         placeName=destination.title(),
-        hotelName=packages[0][0],
-        hotel_image=packages[0][7],
-        hotel_price=packages[0][1],
-        hotel_rating_reviews=packages[0][2],
-        resturant_names=packages[0][3],
-        resturant_images=packages[0][8],
-        resturant_stars=packages[0][5],
+        hotelName=packages[index][0],
+        hotel_image=packages[index][7],
+        hotel_price=packages[index][1],
+        hotel_rating_reviews=packages[index][2],
+        resturant_names=packages[index][3],
+        resturant_images=packages[index][8],
+        resturant_stars=packages[index][5],
         visiting_places=Visit,
         visiting_images=visit_images,
         visiting_stars_reviews=visit_stars_reviews,
-        restaurant_cost=packages[0][4]
+        restaurant_cost=packages[index][4],
     )
+
+
+def nextPackage(root):
+    global index, _destination, _packages, _Visit, _visit_images, _visit_stars_reviews
+    index = index + 1
+    if index >= len(_packages):
+        index = 0
+    print(index)
+    btn_clicked(
+        1,
+        root=root,
+        placeName=_destination.title(),
+        hotelName=_packages[index][0],
+        hotel_image=_packages[index][7],
+        hotel_price=_packages[index][1],
+        hotel_rating_reviews=_packages[index][2],
+        resturant_names=_packages[index][3],
+        resturant_images=_packages[index][8],
+        resturant_stars=_packages[index][5],
+        visiting_places=_Visit,
+        visiting_images=_visit_images,
+        visiting_stars_reviews=_visit_stars_reviews,
+        restaurant_cost=_packages[index][4],
+    )
+    root.mainloop()
+
     root.mainloop()
