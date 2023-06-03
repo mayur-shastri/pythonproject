@@ -25,7 +25,7 @@ def btn_clicked(
     resturant_images,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
 ):
     if f == 1:
         stayOutput(
@@ -40,7 +40,7 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         )
     if f == 2:
         eatOutput(
@@ -55,7 +55,7 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         )
     if f == 3:
         visitOutput(
@@ -70,7 +70,7 @@ def btn_clicked(
             resturant_stars,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         )
 
 
@@ -86,7 +86,7 @@ def stayOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
 ):
     window = Toplevel(root)  # Create a Toplevel window
     root.withdraw()
@@ -128,7 +128,7 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -153,7 +153,7 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -178,7 +178,7 @@ def stayOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -257,7 +257,7 @@ def visitOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
 ):
     window = Toplevel(root)
     root.withdraw()
@@ -297,7 +297,7 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -323,7 +323,7 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -349,7 +349,7 @@ def visitOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -480,7 +480,7 @@ def visitOutput(
         text=f"{visiting_stars_reviews[0][0:3]}",
         font=("Helvetica", 9, "bold"),
     )
-    text_label1.place(x=236.08, y=273.77, width=24, height=11)
+    text_label1.place(x=236.08, y=273.77, width=21, height=11)
     text_label1.configure(foreground="white")
     text_label1.configure(bg="#002074")
 
@@ -489,7 +489,7 @@ def visitOutput(
         text=f"{visiting_stars_reviews[1][0:3]}",
         font=("Helvetica", 9, "bold"),
     )
-    text_label2.place(x=433.01, y=273.77, width=24, height=11)
+    text_label2.place(x=433.01, y=273.77, width=21, height=11)
     text_label2.configure(foreground="white")
     text_label2.configure(bg="#002074")
 
@@ -498,7 +498,7 @@ def visitOutput(
         text=f"{visiting_stars_reviews[2][0:3]}",
         font=("Helvetica", 9, "bold"),
     )
-    text_label3.place(x=119.21, y=508.77, width=24, height=11)
+    text_label3.place(x=119.21, y=508.77, width=21, height=11)
     text_label3.configure(foreground="white")
     text_label3.configure(bg="#002074")
 
@@ -507,7 +507,8 @@ def visitOutput(
         text=f"{visiting_stars_reviews[3][0:3]}",
         font=("Helvetica", 9, "bold"),
     )
-    text_label4.place(x=318.6, y=508.77, width=24, height=11)
+    text_label4.place(x=318.6, y=508.77, width=21
+                      , height=11)
     text_label4.configure(foreground="white")
     text_label4.configure(bg="#002074")
 
@@ -516,7 +517,7 @@ def visitOutput(
         text=f"{visiting_stars_reviews[4][0:3]}",
         font=("Helvetica", 9, "bold"),
     )
-    text_label5.place(x=518.6, y=508.77, width=24, height=11)
+    text_label5.place(x=518.6, y=508.77, width=21, height=11)
     text_label5.configure(foreground="white")
     text_label5.configure(bg="#002074")
 
@@ -582,7 +583,7 @@ def eatOutput(
     resturant_stars,
     visiting_places,
     visiting_images,
-    visiting_stars_reviews,restaurant_cost
+    visiting_stars_reviews,
 ):
     window = Toplevel(root)
     root.withdraw()
@@ -622,7 +623,7 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -648,7 +649,7 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -674,7 +675,7 @@ def eatOutput(
             resturant_images,
             visiting_places,
             visiting_images,
-            visiting_stars_reviews,restaurant_cost
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -815,33 +816,6 @@ def eatOutput(
     review3.configure(foreground="white")  # Set text color to white
     review3.configure(bg="#002074")
     print(resturant_stars[2][16:])
-
-    cost1 = Label(
-        window,
-        text=f"{cost_range(restaurant_cost[0])}",
-        font=("Arial Narrow", 10, "bold"),
-    )
-    cost1.place(x=61, y=370, width=120, height=20)
-    cost1.configure(foreground="white")  # Set text color to white
-    cost1.configure(bg="#002074")  # Set background color to blue
-
-    cost2 = Label(
-        window,
-        text=f"{cost_range(restaurant_cost[1])}",
-        font=("Arial Narrow", 10, "bold"),
-    )
-    cost2.place(x=341.6, y=370, width=120, height=20)
-    cost2.configure(foreground="white")  # Set text color to white
-    cost2.configure(bg="#002074")  # Set background color to blue
-
-    cost3 = Label(
-        window,
-        text=f"{cost_range (restaurant_cost[2])}",
-        font=("Arial Narrow", 10, "bold"),
-    )
-    cost3.place(x=621.83, y=370, width=120, height=20)
-    cost3.configure(foreground="white")  # Set text color to white
-    cost3.configure(bg="#002074")  # Set background color to blue
 
     window.resizable(False, False)
     window.mainloop()
