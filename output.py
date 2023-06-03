@@ -3,8 +3,11 @@ from PIL import ImageTk, Image
 import requests
 from io import BytesIO
 
+
 def clicked():
     pass
+
+
 def btn_clicked(
     f,
     root,
@@ -17,45 +20,53 @@ def btn_clicked(
     resturant_stars,
     resturant_images,
     visiting_places,
+    visiting_images,
+    visiting_stars_reviews,
 ):
     if f == 1:
         stayOutput(
-            root= root,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            root,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_images,
+            resturant_stars,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         )
     if f == 2:
         eatOutput(
-            root=root,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            root,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_images,
+            resturant_stars,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         )
     if f == 3:
         visitOutput(
-            root=root,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            root,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_images,
+            resturant_stars,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         )
 
 
@@ -70,9 +81,11 @@ def stayOutput(
     resturant_images,
     resturant_stars,
     visiting_places,
+    visiting_images,
+    visiting_stars_reviews,
 ):
-    root.withdraw()
     window = Toplevel(root)  # Create a Toplevel window
+    root.withdraw()
     hotel_stars = hotel_rating_reviews[0:3]
     hotel_reviews = hotel_rating_reviews[16:]
 
@@ -100,16 +113,18 @@ def stayOutput(
         highlightthickness=0,
         command=lambda: btn_clicked(
             1,
-            root=window,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            window,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -123,16 +138,18 @@ def stayOutput(
         highlightthickness=0,
         command=lambda: btn_clicked(
             2,
-            root=window,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            window,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -153,9 +170,11 @@ def stayOutput(
             hotel_price,
             hotel_rating_reviews,
             resturant_names,
-            resturant_images,
             resturant_stars,
+            resturant_images,
             visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -233,9 +252,11 @@ def visitOutput(
     resturant_images,
     resturant_stars,
     visiting_places,
+    visiting_images,
+    visiting_stars_reviews,
 ):
-    root.withdraw()
     window = Toplevel(root)
+    root.withdraw()
 
     window.geometry("880x575")
     window.configure(bg="#ffffff")
@@ -267,7 +288,12 @@ def visitOutput(
             hotel_image,
             hotel_price,
             hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
             visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -282,16 +308,18 @@ def visitOutput(
         highlightthickness=0,
         command=lambda: btn_clicked(
             2,
-            root=window,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            window,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -306,16 +334,18 @@ def visitOutput(
         highlightthickness=0,
         command=lambda: btn_clicked(
             3,
-            root=window,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            window,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -392,6 +422,145 @@ def visitOutput(
     name5.place(x=502, y=439.58, width=169, height=22)
     name5.configure(foreground="white")  # Set text color to white
     name5.configure(bg="#002074")  # Set background color to blue
+    # -------------------------------------------------------------------------------
+    print(visiting_images[0])
+    response = requests.get(
+        f"{visiting_images[0]}"
+    )  # Replace with the URL of your network image
+    image1 = Image.open(BytesIO(response.content))
+    image1 = image1.resize((179, 113), Image.ANTIALIAS)
+    image1 = ImageTk.PhotoImage(image1)
+    image1_label = Label(window, image=image1)
+    image1_label.place(x=208, y=74)
+
+    print(visiting_images[1])
+    response = requests.get(
+        f"{visiting_images[1]}"
+    )  # Replace with the URL of your network image
+    image2 = Image.open(BytesIO(response.content))
+    image2 = image2.resize((177, 113), Image.ANTIALIAS)
+    image2 = ImageTk.PhotoImage(image2)
+    image2_label = Label(window, image=image2)
+    image2_label.place(x=405.41, y=74)
+
+    print(visiting_images[2])
+    response = requests.get(
+        f"{visiting_images[2]}"
+    )  # Replace with the URL of your network image
+    image3 = Image.open(BytesIO(response.content))
+    image3 = image3.resize((179, 113), Image.ANTIALIAS)
+    image3 = ImageTk.PhotoImage(image3)
+    image3_label = Label(window, image=image3)
+    image3_label.place(x=91, y=309)
+
+    response = requests.get(
+        f"{visiting_images[3]}"
+    )  # Replace with the URL of your network image
+    image4 = Image.open(BytesIO(response.content))
+    image4 = image4.resize((177, 113), Image.ANTIALIAS)
+    image4 = ImageTk.PhotoImage(image4)
+    image4_label = Label(window, image=image4)
+    image4_label.place(x=291, y=309)
+
+    response = requests.get(
+        f"{visiting_images[4]}"
+    )  # Replace with the URL of your network image
+    image5 = Image.open(BytesIO(response.content))
+    image5 = image5.resize((177, 113), Image.ANTIALIAS)
+    image5 = ImageTk.PhotoImage(image5)
+    image5_label = Label(window, image=image5)
+    image5_label.place(x=491, y=309)
+
+    text_label1 = Label(
+        window,
+        text=f"{visiting_stars_reviews[0][0:3]}",
+        font=("Helvetica", 9, "bold"),
+    )
+    text_label1.place(x=236.08, y=273.77, width=24, height=11)
+    text_label1.configure(foreground="white")
+    text_label1.configure(bg="#002074")
+
+    text_label2 = Label(
+        window,
+        text=f"{visiting_stars_reviews[1][0:3]}",
+        font=("Helvetica", 9, "bold"),
+    )
+    text_label2.place(x=433.01, y=273.77, width=24, height=11)
+    text_label2.configure(foreground="white")
+    text_label2.configure(bg="#002074")
+
+    text_label3 = Label(
+        window,
+        text=f"{visiting_stars_reviews[2][0:3]}",
+        font=("Helvetica", 9, "bold"),
+    )
+    text_label3.place(x=119.21, y=508.77, width=24, height=11)
+    text_label3.configure(foreground="white")
+    text_label3.configure(bg="#002074")
+
+    text_label4 = Label(
+        window,
+        text=f"{visiting_stars_reviews[3][0:3]}",
+        font=("Helvetica", 9, "bold"),
+    )
+    text_label4.place(x=318.6, y=508.77, width=24, height=11)
+    text_label4.configure(foreground="white")
+    text_label4.configure(bg="#002074")
+
+    text_label5 = Label(
+        window,
+        text=f"{visiting_stars_reviews[4][0:3]}",
+        font=("Helvetica", 9, "bold"),
+    )
+    text_label5.place(x=518.6, y=508.77, width=24, height=11)
+    text_label5.configure(foreground="white")
+    text_label5.configure(bg="#002074")
+
+    review_text_label1 = Label(
+        window,
+        text=f"{visiting_stars_reviews[0][16::]}",
+        font=("Arial Narrow", 9, "bold"),
+    )
+    review_text_label1.place(x=306, y=274.44, width=65, height=14)
+    review_text_label1.configure(foreground="white")
+    review_text_label1.configure(bg="#002074")
+
+    review_text_label2 = Label(
+        window,
+        text=f"{visiting_stars_reviews[1][16::]}",
+        font=("Arial Narrow", 9, "bold"),
+    )
+    review_text_label2.place(x=501.01, y=274.44, width=65, height=14)
+    review_text_label2.configure(foreground="white")
+    review_text_label2.configure(bg="#002074")
+
+    review_text_label3 = Label(
+        window,
+        text=f"{visiting_stars_reviews[2][16::]}",
+        font=("Arial Narrow", 9, "bold"),
+    )
+    review_text_label3.place(x=188.72, y=509.4, width=65, height=14)
+    review_text_label3.configure(foreground="white")
+    review_text_label3.configure(bg="#002074")
+
+    review_text_label4 = Label(
+        window,
+        text=f"{visiting_stars_reviews[3][16::]}",
+        font=("Arial Narrow", 9, "bold"),
+    )
+    review_text_label4.place(x=386.6, y=509.4, width=65, height=14)
+    review_text_label4.configure(foreground="white")
+    review_text_label4.configure(bg="#002074")
+
+    review_text_label5 = Label(
+        window,
+        text=f"{visiting_stars_reviews[4][16::]}",
+        font=("Arial Narrow", 9, "bold"),
+    )
+    review_text_label5.place(x=586.6, y=509.4, width=65, height=14)
+    review_text_label5.configure(foreground="white")
+    review_text_label5.configure(bg="#002074")
+
     window.resizable(False, False)
 
     window.mainloop()
@@ -408,9 +577,11 @@ def eatOutput(
     resturant_images,
     resturant_stars,
     visiting_places,
+    visiting_images,
+    visiting_stars_reviews,
 ):
-    root.withdraw()
     window = Toplevel(root)
+    root.withdraw()
 
     window.geometry("880x575")
     window.configure(bg="#ffffff")
@@ -436,16 +607,18 @@ def eatOutput(
         highlightthickness=0,
         command=lambda: btn_clicked(
             2,
-            root=window,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            window,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -460,16 +633,18 @@ def eatOutput(
         highlightthickness=0,
         command=lambda: btn_clicked(
             3,
-            root=window,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            window,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -484,16 +659,18 @@ def eatOutput(
         highlightthickness=0,
         command=lambda: btn_clicked(
             1,
-            root=window,
-            placeName=placeName,
-            hotelName= hotelName,
-            hotel_image= hotel_image,
-            hotel_price= hotel_price,
-            hotel_rating_reviews=hotel_rating_reviews,
-            resturant_names= resturant_names,
-            resturant_images= resturant_images,
-            resturant_stars= resturant_stars,
-            visiting_places= visiting_places,
+            window,
+            placeName,
+            hotelName,
+            hotel_image,
+            hotel_price,
+            hotel_rating_reviews,
+            resturant_names,
+            resturant_stars,
+            resturant_images,
+            visiting_places,
+            visiting_images,
+            visiting_stars_reviews,
         ),
         relief="flat",
     )
@@ -512,7 +689,7 @@ def eatOutput(
 
     b3.place(x=378, y=514, width=142, height=61)
 
-    #resturant 1 name: 
+    # resturant 1 name:
     name1 = Label(
         window,
         text=f"{resturant_names[0]}",
@@ -522,28 +699,26 @@ def eatOutput(
     name1.configure(foreground="white")  # Set text color to white
     name1.configure(bg="#002074")
 
-
-    #resturant 2 name: 
+    # resturant 2 name:
     name2 = Label(
         window,
         text=f"{resturant_names[1]}",
         font=("Helvetica", 12, "bold"),
     )
-    name2.place(x=341.83, y=327.32, width=86, height=30)
+    name2.place(x=341.83, y=327.32, width=201, height=30)
     name2.configure(foreground="white")  # Set text color to white
     name2.configure(bg="#002074")
-
-    #resturant 3 name: 
+    # resturant 3 name:
     name3 = Label(
         window,
         text=f"{resturant_names[2]}",
         font=("Helvetica", 12, "bold"),
     )
-    name3.place(x=621.83, y=328.32, width=86, height=30)
+    name3.place(x=621.83, y=328.32, width=201, height=30)
     name3.configure(foreground="white")  # Set text color to white
     name3.configure(bg="#002074")
-
-    #resturant 1 image: 
+    print(resturant_images[0])
+    # resturant 1 image:
     response = requests.get(
         f"{resturant_images[0]}"
     )  # Replace with the URL of your network image
@@ -552,8 +727,8 @@ def eatOutput(
     image1 = ImageTk.PhotoImage(image1)
     image1_label = Label(window, image=image1)
     image1_label.place(x=43, y=135)
-    
-    #resturant 2 image: 
+    print(resturant_images[1])
+    # resturant 2 image:
     response = requests.get(
         f"{resturant_images[1]}"
     )  # Replace with the URL of your network image
@@ -562,8 +737,8 @@ def eatOutput(
     image2 = ImageTk.PhotoImage(image2)
     image2_label = Label(window, image=image2)
     image2_label.place(x=324, y=135)
-
-    #resturant 3 image: 
+    print(resturant_images[2])
+    # resturant 3 image:
     response = requests.get(
         f"{resturant_images[2]}"
     )  # Replace with the URL of your network image
@@ -572,72 +747,70 @@ def eatOutput(
     image3 = ImageTk.PhotoImage(image3)
     image3_label = Label(window, image=image3)
     image3_label.place(x=604, y=135)
-
-    #resturant 1 rating: 
+    print("------------------------------------------")
+    print(resturant_stars[0])
+    # resturant 1 rating:
     rating1 = Label(
         window,
-        text=f"{hotel_rating_reviews[0][:3]}/5",
+        text=f"{resturant_stars[0][0:3]}/5",
         font=("Helvetica", 8, "bold"),
     )
     rating1.place(x=227, y=362, width=45, height=12)
     rating1.configure(foreground="white")  # Set text color to white
-    rating1.configure(bg="#002074")  
-
-    #resturant 2 rating: 
+    rating1.configure(bg="#002074")
+    print(resturant_stars[1])
+    # resturant 2 rating:
     rating2 = Label(
         window,
-        text=f"{hotel_rating_reviews[1][:3]}/5",
+        text=f"{resturant_stars[1][0:3]}/5",
         font=("Helvetica", 8, "bold"),
     )
     rating2.place(x=504.83, y=362, width=45, height=12)
     rating2.configure(foreground="white")  # Set text color to white
-    rating2.configure(bg="#002074")  
-
-    #resturant 3 rating: 
+    rating2.configure(bg="#002074")
+    print(resturant_stars[2])
+    # resturant 3 rating:
     rating3 = Label(
         window,
-        text=f"{hotel_rating_reviews[2][:3]}/5",
+        text=f"{resturant_stars[2][0:3]}/5",
         font=("Helvetica", 8, "bold"),
     )
     rating3.place(x=784.83, y=362, width=45, height=12)
     rating3.configure(foreground="white")  # Set text color to white
-    rating3.configure(bg="#002074")  
+    rating3.configure(bg="#002074")
 
-    #resturant 1 review: 
+    # resturant 1 review:
     review1 = Label(
         window,
-        text=f"{hotel_rating_reviews[0][16:]}",
-        font=("Helvetica", 8, "bold"),
+        text=f"{resturant_stars[0][16:]}",
+        font=("Arial Narrow", 8, "bold"),
     )
     print(hotel_rating_reviews[0][16:])
-    review1.place(x=204, y=382, width=67, height=13)
+    review1.place(x=204, y=382, width=75, height=13)
     review1.configure(foreground="white")  # Set text color to white
-    review1.configure(bg="#002074")  
+    review1.configure(bg="#002074")
 
-    #resturant 2 review: 
+    # resturant 2 review:
     review2 = Label(
         window,
-        text=f"{hotel_rating_reviews[1][16:]}",
-        font=("Helvetica", 8, "bold"),
+        text=f"{resturant_stars[1][16:]}",
+        font=("Arial Narrow", 8, "bold"),
     )
-    review2.place(x=481.83, y=382, width=67, height=13)
+    review2.place(x=481.83, y=382, width=75, height=13)
     review2.configure(foreground="white")  # Set text color to white
-    review2.configure(bg="#002074")  
+    review2.configure(bg="#002074")
     print(hotel_rating_reviews[1][16:])
 
-
-
-    #resturant 3 review: 
+    # resturant 3 review:
     review3 = Label(
         window,
-        text=f"{hotel_rating_reviews[2][16:]}",
-        font=("Helvetica", 8, "bold"),
+        text=f"{resturant_stars[2][16:]}",
+        font=("Arial Narrow", 8, "bold"),
     )
-    review3.place(x=761.83, y=382, width=67, height=13)
+    review3.place(x=761.83, y=382, width=75, height=13)
     review3.configure(foreground="white")  # Set text color to white
-    review3.configure(bg="#002074") 
-    print(hotel_rating_reviews[2][16:])
+    review3.configure(bg="#002074")
+    print(resturant_stars[2][16:])
 
- 
     window.resizable(False, False)
     window.mainloop()
