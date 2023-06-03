@@ -13,6 +13,9 @@ def btn_clicked(
     hotel_image,
     hotel_price,
     hotel_rating_reviews,
+    resturant_names,
+    resturant_stars,
+    resturant_images,
     visiting_places,
 ):
     if f == 1:
@@ -23,7 +26,10 @@ def btn_clicked(
             hotel_image,
             hotel_price,
             hotel_rating_reviews,
-            visiting_places,
+           resturant_names,
+           resturant_images,
+           resturant_stars,
+           visiting_places,
         )
     if f == 2:
         eatOutput(
@@ -33,6 +39,9 @@ def btn_clicked(
             hotel_image,
             hotel_price,
             hotel_rating_reviews,
+           resturant_names,
+           resturant_images,
+           resturant_stars,
             visiting_places,
         )
     if f == 3:
@@ -43,6 +52,9 @@ def btn_clicked(
             hotel_image,
             hotel_price,
             hotel_rating_reviews,
+            resturant_names,
+            resturant_images,
+            resturant_stars,
             visiting_places,
         )
 
@@ -54,6 +66,9 @@ def stayOutput(
     hotel_image,
     hotel_price,
     hotel_rating_reviews,
+    resturant_names,
+    resturant_images,
+    resturant_stars,
     visiting_places,
 ):
     root.withdraw()
@@ -91,6 +106,9 @@ def stayOutput(
             hotel_image,
             hotel_price,
             hotel_rating_reviews,
+            resturant_names,
+            resturant_images,
+            resturant_stars,
             visiting_places,
         ),
         relief="flat",
@@ -111,6 +129,9 @@ def stayOutput(
             hotel_image,
             hotel_price,
             hotel_rating_reviews,
+            resturant_names,
+            resturant_images,
+            resturant_stars,
             visiting_places,
         ),
         relief="flat",
@@ -131,6 +152,9 @@ def stayOutput(
             hotel_image,
             hotel_price,
             hotel_rating_reviews,
+            resturant_names,
+            resturant_images,
+            resturant_stars,
             visiting_places,
         ),
         relief="flat",
@@ -205,6 +229,9 @@ def visitOutput(
     hotel_image,
     hotel_price,
     hotel_rating_reviews,
+    resturant_names,
+    resturant_images,
+    resturant_stars,
     visiting_places,
 ):
     root.withdraw()
@@ -371,6 +398,9 @@ def eatOutput(
     hotel_image,
     hotel_price,
     hotel_rating_reviews,
+    resturant_names,
+    resturant_images,
+    resturant_stars,
     visiting_places,
 ):
     root.withdraw()
@@ -466,6 +496,37 @@ def eatOutput(
     )
 
     b3.place(x=378, y=514, width=142, height=61)
+
+    #resturant 1 name: 
+    name1 = Label(
+        window,
+        text=f"{resturant_names[0]}",
+        font=("Helvetica", 12, "bold"),
+    )
+    name1.place(x=61, y=326, width=201, height=23)
+    name1.configure(foreground="white")  # Set text color to white
+    name1.configure(bg="#002074")
+
+
+    #resturant 2 name: 
+    name2 = Label(
+        window,
+        text=f"{resturant_names[1]}",
+        font=("Helvetica", 12, "bold"),
+    )
+    name2.place(x=341.83, y=327.32, width=86, height=30)
+    name2.configure(foreground="white")  # Set text color to white
+    name2.configure(bg="#002074")
+    #resturant 3 name: 
+    name3 = Label(
+        window,
+        text=f"{resturant_names[2]}",
+        font=("Helvetica", 12, "bold"),
+    )
+    name3.place(x=621.83, y=328.32, width=86, height=30)
+    name3.configure(foreground="white")  # Set text color to white
+    name3.configure(bg="#002074")
+    
 
     window.resizable(False, False)
     window.mainloop()

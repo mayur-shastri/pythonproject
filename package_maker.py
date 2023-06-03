@@ -104,15 +104,27 @@ def packageMaker(root,destination, budget, stayDuration, numPeople):
     # placeName,hotelName,stars,reviews,hotel_image,hotel_price
     # print(destination.title(),packages[0][0],packages[0][7],packages[0][1])
     print('-------------------------------------')
-    print("Hotel name = ",packages[0][0])
+    print("resturant names = ",packages[0][3])
     print('-------------------------------------')
-    print("Image Link = ",packages[0][7])
+    print("resturant Image Links = ",packages[0][8])
     print('-------------------------------------')
-    print("Hotel Price = ",packages[0][1])
+    print("resturant costs = ",packages[0][4])
     print('-------------------------------------')
+    print("resturant ratings= ",packages[0][5])
     
     root.withdraw()  # Hide the root window
 
-    btn_clicked(1,root, destination.title(), packages[0][0], packages[0][7], packages[0][1],packages[0][2],Visit)
+    btn_clicked(1,
+                root=root,
+                placeName= destination.title(),
+                hotelName=packages[0][0],
+                hotel_image= packages[0][7],
+                hotel_price=packages[0][1],
+                hotel_rating_reviews=packages[0][2],
+                resturant_names=packages[0][3],
+                resturant_images=packages[0][8],
+                #esturant_cost=packages[0][4],
+                resturant_stars=packages[0][5],
+                visiting_places=Visit)
     root.mainloop()
 # packageMaker('pondicherry', 600000, 3, 2)

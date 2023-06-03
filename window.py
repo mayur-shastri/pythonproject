@@ -4,7 +4,7 @@ from package_maker import packageMaker
 import threading
 
 
-def btn_clicked(whereto, budget, days, travelers):
+def explore_clicked(whereto, budget, days, travelers):
     days_contents = int(days.get())
     budget_contents = int(budget.get())
     whereto_contents = whereto.get()
@@ -45,7 +45,7 @@ b0 = Button(
     image=img0,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: btn_clicked(whereto, budget, days, travelers),
+    command=lambda: explore_clicked(whereto, budget, days, travelers),
     relief="flat",
 )
 
