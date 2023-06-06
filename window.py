@@ -96,10 +96,12 @@ def explore_clicked(whereto, budget, days, travelers):
     print("---------------------")
     print("Travelers = ", travelers_contents)
     
-    
-    packageMaker(
-        window, whereto_contents, budget_contents, days_contents, travelers_contents
-    )
+    try:
+        packageMaker(
+            window, whereto_contents, budget_contents, days_contents, travelers_contents
+        )
+    except:
+        errorPage(window)
 
 window = Tk()
 
